@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PMO Comments</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='dark-styles.css') }}">
+
+</head>
+<body>
+    <div id="container">
+        <img src="{{ url_for('static', filename='apslogo.png') }}" alt="APS Logo" style="width: 50px; height: 50px;">
+        <button id="dark-mode-toggle">Toggle Dark Mode</button>
+        <script src="{{ url_for('static', filename='script.js') }}"></script>  
+        <div id="chat">
+            <p>PMO Comments</p>
+        </div>
+        <!-- Form for user input -->
+        <form id="user-input-form">
+            <input type="text" id="project-number" name="project_number" placeholder="Project Number" required>
+            <input type="text" id="pmo-comment" name="pmo_comment" placeholder="PMO Comment" required>
+            <button type="button" onclick="sendMessage()">Submit</button>
+        </form>
+    </div>    
+</body>
+</html>
