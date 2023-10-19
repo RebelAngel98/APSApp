@@ -10,17 +10,19 @@
 <body> <!--The body for the code. It's housing the logo image, the button for toggling dark mode, and the buttons for the project number and pmo comments-->
     <div id="container">
         <img src="{{ url_for('static', filename='apslogo.png') }}" alt="APS Logo" style="width: 50px; height: 50px;">
+        <br> <!--a line break to not have anything clustered together-->
         <button id="dark-toggle" onclick="toggleDarkMode()" >Toggle Dark Mode</button> 
-        <div id="chat">
+        <div id="chat"> <!--maybe need to change the id to id="comment"? Or to something else-->
             <p>PMO Comments</p> <!--Showing the section where it'll be user input data-->
         </div>
         <!--This'll be the text boxes for the users to input their project number and pmo comment. You can add on if needed.-->
         <form id="user-input-form">
             <input type="text" id="project_number" name="project_number" placeholder="Project Number" required>
-            <input type="text" id="user_answer" name="user_answer" placeholder="PMO Comment" required>
+            <button type="button" onclick="checkAnswer()">Check</button>
+            <br>
+            <input type="text" id="user_answer" name="userAnswer" placeholder="PMO Comment" required>
             <button type="button" onclick="sendMessage()">Submit</button>
         </form>
-    </div>    
-    <script src="script.js"></script>
+    </div>   
 </body>
 </html>

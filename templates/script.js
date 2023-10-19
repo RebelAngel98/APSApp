@@ -20,9 +20,9 @@ function loadStyles(filename) {
 }
 
 function sendMessage() {
-    var userAnswer = document.getElementById('user-input').value;
-    document.getElementById('chat').innerHTML += "<p>User: " + userAnswer + "</p>";
-    document.getElementById('user-input').value = "";
+    var userAnswer = document.getElementById('user_answer').value;
+    document.getElementById('chat').innerHTML += "<p>User: " + user_answer + "</p>";
+    document.getElementById('user_answer').value = "";
 
     // Send userAnswer to the server using POST method
     $.ajax({
@@ -37,3 +37,10 @@ function sendMessage() {
         }
     });
 }
+//add a function for checkAnswer to double check the project name 
+//copying the function sendMessage above, but want to turn it into a 'if you get this right, then move on to posting a comment
+function checkAnswer(){
+    var user_project_number = document.getElementById('project_number').value;
+    document.getElementById('chat').innerHTML +="<p>Machine: " + project_number + "</p>";
+    document.getElementById('project_number').value = "";
+} 
