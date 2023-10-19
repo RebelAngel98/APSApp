@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html> 
 <head> <!--The head of the code will be the title of the webpage, when changed, the tab saying what the webpage is will also be changed!-->
     <title>PMO Comments</title>
+    <script src="script.js"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='dark-styles.css') }}">
 
@@ -9,17 +10,17 @@
 <body> <!--The body for the code. It's housing the logo image, the button for toggling dark mode, and the buttons for the project number and pmo comments-->
     <div id="container">
         <img src="{{ url_for('static', filename='apslogo.png') }}" alt="APS Logo" style="width: 50px; height: 50px;">
-        <button id="dark-mode-toggle">Toggle Dark Mode</button>
-        <script src="{{ url_for('static', filename='script.js') }}"></script>  
+        <button id="dark-toggle" onclick="toggleDarkMode()" >Toggle Dark Mode</button> 
         <div id="chat">
             <p>PMO Comments</p> <!--Showing the section where it'll be user input data-->
         </div>
         <!--This'll be the text boxes for the users to input their project number and pmo comment. You can add on if needed.-->
         <form id="user-input-form">
-            <input type="text" id="project-number" name="project_number" placeholder="Project Number" required>
-            <input type="text" id="pmo-comment" name="pmo_comment" placeholder="PMO Comment" required>
+            <input type="text" id="project_number" name="project_number" placeholder="Project Number" required>
+            <input type="text" id="user_answer" name="user_answer" placeholder="PMO Comment" required>
             <button type="button" onclick="sendMessage()">Submit</button>
         </form>
     </div>    
+    <script src="script.js"></script>
 </body>
 </html>
