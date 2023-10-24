@@ -1,9 +1,10 @@
 /*CSS for Dark Mode Toggle
 
+
 Keep all you dark mode styles there, and make sure when you link to this sheet in your html head,
 make it the bottom css link tag so it overrides all other styles.
 At the bottom, that's where you start to add your dark mode styles by
-starting starting with "body.dark-mode" and add your class you want to
+starting with "body.dark-mode" and add your class you want to
 target at the end. For example,
 
 body.dark-mode .heading-one {}
@@ -14,6 +15,16 @@ Scroll to the bottom to start adding your dark mode styles
 */
 
 /* note that Internet Explorer does not support css variables */
+
+body.dark-mode .targetElement {
+    background: #000000;
+}
+
+
+body.dark-mode #updates {
+    background: #000000;
+}
+
 :root {
     --dark: #000;
     --medium: #1b1b1b;
@@ -157,11 +168,4 @@ body.dark-mode {
 
 body.dark-mode p {
     color: #fff
-}
-
-body.dark-mode #updates {
-    background: #000000;
-}
-body.dark-mode .targetElement {
-    background: #000000;
 }
