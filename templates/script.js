@@ -1,3 +1,9 @@
+// Function to load CSS styles
+function loadStyles(filename) {
+    const link = document.querySelector('link[rel="stylesheet"]');
+    link.href = "{{ url_for('static', filename='') }}" + filename; // Generate the URL for the CSS file
+}
+
 /*  Dark Mode */
 const body = document.querySelector('body');
 
@@ -44,11 +50,7 @@ darkModeToggle.addEventListener('click', () => {
             disableDarkMode();
         }
     })
-// Function to load CSS styles
-function loadStyles(filename) {
-    const link = document.querySelector('link[rel="stylesheet"]');
-    link.href = "{{ url_for('static', filename='') }}" + filename; // Generate the URL for the CSS file
-}
+
 
 function sendMessage() {
     var userAnswer = document.getElementById('user_answer').value;

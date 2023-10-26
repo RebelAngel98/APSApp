@@ -1,16 +1,16 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, radiofield
 import pandas as pd
 import os
 from openpyxl import Workbook
 
 #DO NOT TOUCH! This is bringing the 'static' folder into the app. You can completely crash the app if you change it
 app = Flask(__name__, static_folder='static')
-
 #this will read the excel file, finding the locations where the project number and pmo comments are located.
 #keep in mind that when you need to change the file, put it into the 'data' folder
-def read_excel():
-    excel_file_path = os.path.abspath('data/PMO Testing Comments.xlsx') #also change the name here to line up with what the file is called i.e. "July Operational Metrics"
-    return pd.read_excel(excel_file_path)
+
+
+df=pd.read_excel(r'PMO Testing Comments.xlsx', sheet_name='Sheet 1') #this is the dataframe to which the PMO Excel file goes to, and the sheet name of which it's under. 
+
 
 # the index.html is what connects the whole code together. It's the main part of code, besides Python.
 @app.route('/')
@@ -24,7 +24,7 @@ def send_answers():
     user_answer = request.form.get('user_answer')
 
     # this is reading the excel file to make sure the project number matches up to one of them in the file.
-    df = read_excel()
+    df =pd.read_excel()
 
     # if the project number doesn't exist in the file, the error will pop up. It's important to keep the excel file updated
     if user_project_number not in df['Project Number'].values:
@@ -58,6 +58,3 @@ def check_answer():
 if __name__ == '__main__':
     app.run(debug=True)
 
-
-# make sure the users can select either sheet that they need to add comments to, 
-# internal url only - only for share point, keep it off the WWW

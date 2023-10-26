@@ -9,9 +9,6 @@ target at the end. For example,
 
 body.dark-mode .heading-one {}
 
-then add your css properties like normal. That's it!
-Scroll to the bottom to start adding your dark mode styles
-
 */
 
 /* note that Internet Explorer does not support css variables */
@@ -65,8 +62,8 @@ body.dark-mode #updates {
 }
 
 .top-dark-mode-button .dark-toggle {
-    background: rgb(230, 230, 230);
-    border-color: rgb(230, 230, 230);
+    background: rgb(0, 0, 0);
+    border-color: rgb(0, 0, 0);
     width: 35px;
 }
 
@@ -163,7 +160,10 @@ body.dark-mode .dark-toggle span {
 /* Begin adding your dark mode styles here, like so: */
 
 body.dark-mode {
-    background: #000
+    background: rgb(0, 0, 0);
+    border-color: rgb(0, 0, 0);
+    width: 35px;
+
 }
 
 body.dark-mode p {
