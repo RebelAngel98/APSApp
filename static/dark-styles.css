@@ -160,10 +160,7 @@ body.dark-mode .dark-toggle span {
 /* Begin adding your dark mode styles here, like so: */
 
 body.dark-mode {
-    background: rgb(0, 0, 0);
-    border-color: rgb(0, 0, 0);
-    width: 35px;
-
+    background: #000
 }
 
 body.dark-mode p {

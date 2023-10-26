@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify, radiofield
+from flask import Flask, render_template, request, jsonify
 import pandas as pd
 import os
 from openpyxl import Workbook
@@ -9,7 +9,7 @@ app = Flask(__name__, static_folder='static')
 #keep in mind that when you need to change the file, put it into the 'data' folder
 
 
-df=pd.read_excel(r'PMO Testing Comments.xlsx', sheet_name='Sheet 1') #this is the dataframe to which the PMO Excel file goes to, and the sheet name of which it's under. 
+df=pd.read_excel(r'data/PMO Testing Comments.xlsx', sheet_name='Sheet1') #this is the dataframe to which the PMO Excel file goes to, and the sheet name of which it's under. 
 
 
 # the index.html is what connects the whole code together. It's the main part of code, besides Python.
@@ -24,7 +24,7 @@ def send_answers():
     user_answer = request.form.get('user_answer')
 
     # this is reading the excel file to make sure the project number matches up to one of them in the file.
-    df =pd.read_excel()
+    df = pd.read_excel()
 
     # if the project number doesn't exist in the file, the error will pop up. It's important to keep the excel file updated
     if user_project_number not in df['Project Number'].values:
@@ -44,7 +44,7 @@ def check_answer():
     user_answer = request.form.get('user_answer')
 
     # Read the Excel file into a DataFrame
-    df =pd.read_excel()
+    df = pd.read_excel()
 
     # Search for a matching row
     match = df[(df['Project Number'] == user_project_number) & (df['PMO Comments'] == user_answer)]

@@ -3,7 +3,7 @@
 <head> <!--The head of the code will be the title of the webpage, when changed, the tab saying what the webpage is will also be changed!-->
     <title>PMO Comments</title>
     <script src="script.js"></script>
-    <link rel="stylesheet" type="text/css" href="dark-styles.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dark-styles.css') }}"/>
 
 </head>
 <body> <!--The body for the code. It's housing the logo image, the button for toggling dark mode, and the buttons for the project number and pmo comments-->
@@ -24,7 +24,7 @@
     </div>   
 </body>
 <footer>
-    <button class="dark-mode-button top-dark-mode-button" aria-label="Dark Mode">Dark Theme
+    <button class="dark-mode-button top-dark-mode-button" aria-label="Dark Mode">
     <span aria-hidden="true" class="dark-toggle">
         <span class="DTspan"></span>
     </span>
