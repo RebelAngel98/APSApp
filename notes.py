@@ -18,6 +18,10 @@ git push -u origin main
 
 internal url only - only for share point, keep it off the WWW 
 
+https://www.geeksforgeeks.org/navigation-bars-in-flask/ <- to make a navigation menu for flask. Put it in footer!
+https://kaustubhchaudhari121.medium.com/web-app-in-python-using-flask-which-reads-data-from-excel-file-and-put-output-in-other-excel-file-5317dfab6968 <-Need to fix code in python 
+    and HTML to correctly make the buttons functional 
+
 
 
 unsure if I did the dataframe right on app.py. It should be linking to the PMO Testing Comments, but I am unsure.

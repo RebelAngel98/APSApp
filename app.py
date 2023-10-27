@@ -1,28 +1,11 @@
 from flask import Flask, render_template, request, jsonify
 import pandas as pd
-from flask_navigation import Navigation
+
 
 #DO NOT TOUCH! This is bringing the 'static' folder into the app. You can completely crash the app if you change it
 app = Flask(__name__, static_folder='static')
-# also don't mess with!
-nav = Navigation(app)
-
-# initializing Navigations 
-nav.Bar('top', [ 
-	nav.Item('Home', 'index'), 
-	nav.Item('Gfg', 'gfg', {'page': 5}), 
-]) 
-
-#navigation page routing. It'll be above the APS logo, or should be
-@app.route('/navpage') 
-def navpage(): 
-    return render_template('navpage.html') 
-  
-# apart of the navigation page routing, don't mess with.
-@app.route('/gfg/<int:page>') 
-def gfg(page): 
-    return render_template('gfg.html', page=page) 
-  
+app = Flask(__name__, data_folder='data') 
+"""Can I even do this? ^^^ """
 
 
 
@@ -35,10 +18,8 @@ def index():
     return render_template('index.html')
 
 # this is sending the answers from the user_input_form in the index.html to store somewhere safely.
-@app.route('/send_answer', methods=['GET','POST'])
-
-
-
+@app.route('/send_answer', methods=['POST']) 
+# NEED TO MAYBE ADD 'GET' TO THIS METHOD! SEE NOTES.PY
 def send_answers():
     user_project_number = request.form.get('project_number')
     user_answer = request.form.get('user_answer')
