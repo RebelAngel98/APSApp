@@ -3,8 +3,8 @@
 <head> <!--The head of the code will be the title of the webpage, when changed, the tab saying what the webpage is will also be changed!-->
     <title>PMO Comments</title>
     <script src="script.js"></script>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='text-styles.css')}}"/>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dark-styles.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='text-styles.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dark-styles.css') }}">
 
 </head>
 <body> <!--The body for the code. It's housing the logo image, the button for toggling dark mode, and the buttons for the project number and pmo comments-->
@@ -16,10 +16,10 @@
         </div>
         <!--This'll be the text boxes for the users to input their project number and pmo comment. You can add on if needed.-->
         <form id="user-input-form">
-            <input type="text" id="project_number" name="project_number" placeholder="Project Number" required>
+            <input type="text" id="projectNumber" name="project_number" placeholder="Project Number" required>
             <button type="button" onclick="checkAnswer()">Check</button>
             <br>
-            <input type="text" id="user_answer" name="userAnswer" placeholder="PMO Comment" required>
+            <input type="text" id="userAnswer" name="user_answer" placeholder="PMO Comment" required>
             <button type="button" onclick="sendMessage()">Submit</button>
         </form>
     </div>   

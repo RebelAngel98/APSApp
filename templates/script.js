@@ -32,9 +32,7 @@ darkModeToggle.addEventListener('click', () => {
     }
 })
 
-// Footer button, optional. This is for if you have a second dark mode toggle button
-//in the footer, just make sure the button is inside the footer tag, and it will be
-//linked to this function.
+/* the footer button for Dark Mode */
 
     darkModeToggleFooter.addEventListener('click', () => {
         darkMode = localStorage.getItem("darkMode");
@@ -57,11 +55,11 @@ function sendMessage() {
     document.getElementById('chat').innerHTML += "<p>User: " + user_answer + "</p>";
     document.getElementById('user_answer').value = "";
 
-    // Send userAnswer to the server using POST method
+    // Send user_answer to the server using POST method
     $.ajax({
         type: "POST",
         url: "/send_answer",
-        data: { user_answer: userAnswer },
+        data: { user_answer: user_answer },
         success: function(data) {
             document.getElementById('chat').innerHTML += "<p>System: " + data.status + "</p>";
         },

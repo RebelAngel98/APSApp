@@ -1,10 +1,29 @@
 from flask import Flask, render_template, request, jsonify
 import pandas as pd
+from flask_navigation import Navigation
 
 #DO NOT TOUCH! This is bringing the 'static' folder into the app. You can completely crash the app if you change it
 app = Flask(__name__, static_folder='static')
-#this will read the excel file, finding the locations where the project number and pmo comments are located.
-#keep in mind that when you need to change the file, put it into the 'data' folder
+# also don't mess with!
+nav = Navigation(app)
+
+# initializing Navigations 
+nav.Bar('top', [ 
+	nav.Item('Home', 'index'), 
+	nav.Item('Gfg', 'gfg', {'page': 5}), 
+]) 
+
+#navigation page routing. It'll be above the APS logo, or should be
+@app.route('/navpage') 
+def navpage(): 
+    return render_template('navpage.html') 
+  
+# apart of the navigation page routing, don't mess with.
+@app.route('/gfg/<int:page>') 
+def gfg(page): 
+    return render_template('gfg.html', page=page) 
+  
+
 
 
 df=pd.read_excel(r'data/PMO Testing Comments.xlsx', sheet_name='Sheet1') #this is the dataframe to which the PMO Excel file goes to, and the sheet name of which it's under. 
@@ -16,7 +35,10 @@ def index():
     return render_template('index.html')
 
 # this is sending the answers from the user_input_form in the index.html to store somewhere safely.
-@app.route('/send_answer', methods=['POST'])
+@app.route('/send_answer', methods=['GET','POST'])
+
+
+
 def send_answers():
     user_project_number = request.form.get('project_number')
     user_answer = request.form.get('user_answer')
@@ -52,7 +74,7 @@ def check_answer():
     else:
         return jsonify({'status': 'No match found'})
     
-    
+
 if __name__ == '__main__':
     app.run(debug=True)
 

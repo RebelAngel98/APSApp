@@ -16,7 +16,6 @@ git commit -m "[insert message]"
 git push -u origin main 
 
 
-make sure the users can select either sheet that they need to add comments to, 
 internal url only - only for share point, keep it off the WWW 
 
 
