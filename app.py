@@ -4,32 +4,29 @@ import pandas as pd
 
 app = Flask(__name__, static_folder="static")
 
+"""Do not mess with the static_folder. It contains the JavaScript, text-styles, dark-styles, and logo. 
 
-# df=pd.read_excel(r'data/PMO Testing Comments.xlsx', sheet_name='Sheet1') #this is the dataframe to which the PMO Excel file goes to, and the sheet name of which it's under. 
-
-
-# the index.html is what connects the whole code together. It's the main part of code, besides Python.
+Below is the app.route. This is going to point the app where to go. You won't ever mess with this, it's to stay as index.html as
+it points to the HTML template.  """
 @app.route('/')
 def index():
     return render_template('index.html')
 
-# this is sending the answers from the user_input_form in the index.html to store somewhere safely.
 @app.route('/send_answer', methods=['GET','POST']) 
-# NEED TO MAYBE ADD 'GET' TO THIS METHOD! SEE NOTES.PY
 def send_answers():
     if request.method == "POST":
-        # user_project_number = request.form.get('project_number')
-        # user_answer = request.form.get('user_answer')
-
         PostData = request.get_json()
         user_project_number = PostData["project_number"]
         user_answer = PostData["user_answer"]
+    
+    
+    df = pd.read_excel("data/PMO Testing Comments.xlsx") 
+    """Above is where you'll be changing the .xlsx to match up with the current Operational Metrics inside of the "data/..." MAKE 
+     SURE TO PUT THE OPERATIONAL METRICS IN THE DATA FOLDER"""
 
-    # this is reading the excel file to make sure the project number matches up to one of them in the file.
-    df = pd.read_excel("data/PMO Testing Comments.xlsx")
 
-    # if the project number doesn't exist in the file, the error will pop up. It's important to keep the excel file updated
-    # print(df['Project Number'].values)
+    """Confirming that the Project Number the user inserted is in the excel sheet, otherwise, the status 'Error: Project Number not found'
+     will returned"""    
     print(user_project_number)
 
     if user_project_number not in df['Project Number'].values:
@@ -37,12 +34,11 @@ def send_answers():
     
 
     # If the project number exists, add the answer to the DataFrame
-    # df = df.append({'Project Number': user_project_number, 'PMO Comments': user_answer}, ignore_index=True)
     df.loc[df['Project Number'] == user_project_number, "PMO Comments"] = user_answer
 
     print(df)
 
-    # Save the updated DataFrame to the Excel file
+    """df.to_excel needs to be updated the same way as above with "data/... .xlsx". It'll be the Operational Metrics datasheet"""
     df.to_excel("data/PMO Testing Comments.xlsx", index=False)
 
     return jsonify({'status': 'Comment Submitted Successfully'})
@@ -55,9 +51,10 @@ def check_answer():
     # Read the Excel file into a DataFrame
     df = pd.read_excel()
 
-    # Search for a matching row
+    # Search for a matching row labeled as 'Project Number' and 'PMO Comments'
     match = df[(df['Project Number'] == user_project_number) & (df['PMO Comments'] == user_answer)]
 
+    # if there is no matching 'Project Number' or 'PMO Comments' the code will return with 'No match found' 
     if not match.empty:
         return jsonify({'status': 'Match found'})
     else:
