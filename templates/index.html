@@ -1,8 +1,15 @@
 <!DOCTYPE html>
 <html> 
 <head> <!--The head of the code will be the title of the webpage, when changed, the tab saying what the webpage is will also be changed!-->
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <!-- bootstrap toggel  -->
+
+
     <title>PMO Comments</title>
-    <script src="script.js"></script>
+    <script src="{{ url_for('static', filename='script.js')}}"></script>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='text-styles.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dark-styles.css') }}">
 
@@ -24,8 +31,8 @@
         </form>
     </div>   
 </body>
-<footer>
-    <button class="dark-mode-button top-dark-mode-button" aria-label="Dark Mode">
+<footer id="PageFooter">
+    <button class="dark-mode-button top-dark-mode-button" aria-label="Dark Mode" id="dark-mode-button">
     <span aria-hidden="true" class="dark-toggle">
         <span class="DTspan"></span>
     </span>

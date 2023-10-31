@@ -13,6 +13,7 @@ body {
     width: 100%;
     opacity: .9;
     margin-bottom: 10px;
+    font-family: "Arial"; 
   }
   header h1.logo {
     margin: 0;
