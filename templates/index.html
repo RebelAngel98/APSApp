@@ -5,13 +5,14 @@
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
-    <!-- bootstrap toggel  -->
+    <!-- bootstrap toggle  -->
 
-
+<!--Can't get the static files to load. Ask Michael maybe?-->
     <title>PMO Comments</title>
+    [% load static %]
     <script src="{{ url_for('static', filename='script.js')}}"></script>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='text-styles.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dark-styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='text-styles.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='dark-styles.css') }}">
 
 </head>
 <body> <!--The body for the code. It's housing the logo image, the button for toggling dark mode, and the buttons for the project number and pmo comments-->
